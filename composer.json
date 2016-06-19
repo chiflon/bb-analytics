@@ -1,0 +1,21 @@
+{
+  "name": "chiflon/basebone-test",
+  "version": "dev-master",
+  "license": "MIT",
+  "description": "PHP exercise",
+  "authors": [
+    {
+      "name": "Daniel Lozano",
+      "email": "chiflon@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "monolog/monolog": "^1.19"
+  },
+  "autoload": {
+    "psr-4": {
+      "BBAnalytics\\": "app/"
+    }
+  }
+}

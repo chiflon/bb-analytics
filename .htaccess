@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    # Prevents to looking into folders
+    <IfModule mod_negotiation.c>
+        Options -Indexes
+    </IfModule>
+
+    # Activates URL Rewriting
+    RewriteEngine On
+
+    # redirect to public/
+    RewriteRule ^public - [L,NC]
+</IfModule>

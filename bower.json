@@ -1,0 +1,15 @@
+{
+  "name": "basebone-test",
+  "version": "latest",
+  "authors": [
+    "Daniel Lozano <chiflon@gmail.com>"
+  ],
+  "description": "PHP exercise",
+  "license": "MIT",
+  "ignore": [
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

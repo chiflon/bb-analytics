@@ -1,0 +1,9 @@
+composer.lock
+/vendor
+/node_modules
+/bower_components
+/public
+!/public/index.php
+!/public/.htaccess
+!/public/favicon.ico
+!/public/robots.txt
