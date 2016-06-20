@@ -3,7 +3,7 @@
  * @Author: Daniel Lozano
  * @Date:   2016-06-18 19:28:12
  * @Last Modified by:   Daniel Lozano
- * @Last Modified time: 2016-06-20 07:52:35
+ * @Last Modified time: 2016-06-20 09:43:53
  */
 
 namespace BBAnalytics;
@@ -15,14 +15,24 @@ namespace BBAnalytics;
 
 use BBAnalytics\Classes\Router;
 use BBAnalytics\Classes\View;
+use BBAnalytics\Classes\Installer;
 
 $router = new Router;
 
 //Home
-$router->add('/', function() { header('location:/top-useragent');});
+$router->add('/', function() {
+    if(Installer::isInstalled())
+        header('location:/top-useragent');
+    else
+        header('location:/install');
+});
 
 //Top User Agent
 $router->add('/top-useragent(.+)?', ['controller' => 'TopUserAgentsController@index']);
+
+
+//Top User Agent
+$router->add('/install(.+)?', ['controller' => 'InstallerController@install']);
 
 //404
 $router->add('/404', function() {
