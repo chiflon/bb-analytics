@@ -3,14 +3,13 @@
  * @Author: Daniel Lozano
  * @Date:   2016-06-19 08:28:42
  * @Last Modified by:   Daniel Lozano
- * @Last Modified time: 2016-06-20 08:58:27
+ * @Last Modified time: 2016-06-20 09:45:29
  */
 ?>
 <!-- Jumbotron Header -->
 <header class="jumbotron hero-spacer">
     <h1>TOP User Agent</h1>
     <p>Please, fill the form to generate a list of the TOP user agent that visits a certain campaign.</p>
-    </p>
 </header>
 
 <hr>
