@@ -3,7 +3,7 @@
  * @Author: Daniel Lozano
  * @Date:   2016-06-19 08:20:32
  * @Last Modified by:   Daniel Lozano
- * @Last Modified time: 2016-06-19 15:58:04
+ * @Last Modified time: 2016-06-20 07:46:06
  */
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title><?php echo $pageTitle; ?></title>
+        <title><?= (isset($pageTitle)) ? $pageTitle : ''; ?></title>
 
         <link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.css">
 
@@ -35,7 +35,7 @@
             <footer>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p></p>
+                        <p><?= (isset($footer)) ? $footer : ''; ?></p>
                     </div>
                 </div>
             </footer>
