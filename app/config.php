@@ -22,7 +22,7 @@ define('APP_DEBUG', true);
 //(default) Create your own in /Views/templates!!
 define('VIEW_TEMPLATE', 'default');
 
-//DB config TODO
+//DB config
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'db_name');
 define('DB_USER', 'db_user');

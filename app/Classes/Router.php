@@ -10,19 +10,38 @@ namespace BBAnalytics\Classes;
 class Router
 {
 
+    /**
+     * List of routes
+     * @var array
+     */
     private $routes = array();
 
 
+    /**
+     * Add route's pattern to list
+     * @param string $pattern
+     * @param callback $callback
+     */
     public function add($pattern, $callback) {
         $pattern = '/^' . str_replace('/', '\/', $pattern) . '$/';
         $this->routes[$pattern] = $callback;
     }
 
+
+    /**
+     * Run callback when the request isn't in list
+     * @param  callback $callback
+     */
     public function otherwise($callback) {
         $this->routes['/^(.*)$/'] = $callback;
     }
 
 
+    /**
+     * Receives the URI request, tries to match and execute the callback
+     * @param  string $uri Requested URI
+     * @return callback      Callback
+     */
     public function execute($uri) {
 
         foreach ($this->routes as $pattern => $callback)
@@ -31,6 +50,7 @@ class Router
             {
                 array_shift($params);
 
+                //If it's array and 'controller' is defined, executes the controller's path
                 if (is_array($callback) && array_key_exists('controller', $callback))
                 {
                     $controllerRequest = explode('@', $callback['controller']);
