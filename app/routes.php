@@ -9,8 +9,16 @@
 namespace BBAnalytics;
 
 use BBAnalytics\Classes\Router;
+use BBAnalytics\Classes\View;
 
 $router = new Router;
 
 $router->add('/', function() { header('location:/top-useragent');});
 $router->add('/top-useragent(.+)?', ['controller' => 'TopUserAgentsController@index']);
+$router->add('/404', function() {
+    header("HTTP/1.0 404 Not Found");
+    return (new View('errors.404'))->render(['pageTitle' => '404 Not Found']);
+});
+$router->otherwise(function() {
+    header('location:/404');
+});
