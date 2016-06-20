@@ -21,7 +21,7 @@
             <input type="hidden" name="install" value="true">
             <button type="submit" class="btn btn-primary">Create table</button>
         </form>
-        <p>If you want to add demo data, you can download <a href="clicks_tracking_test.sql">here</a> a sql file and you can import it with your favourite mysql client.</p>
+        <p>If you want to add demo data, you can download <a href="clicks_tracking_test.sql" download target="_blank">here</a> a sql file and you can import it with your favourite mysql client.</p>
     </div>
 </div>
 <!-- /.row -->

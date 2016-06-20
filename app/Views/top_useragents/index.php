@@ -40,6 +40,9 @@
                     <option value="5" <?= (isset($_GET['top']) && $_GET['top'] == 5) ? 'selected' : '' ?>>TOP5</option>
                     <option value="10" <?= (isset($_GET['top']) && $_GET['top'] == 10) ? 'selected' : '' ?>>TOP10</option>
                     <option value="20" <?= (isset($_GET['top']) && $_GET['top'] == 20) ? 'selected' : '' ?>>TOP20</option>
+                    <option value="30" <?= (isset($_GET['top']) && $_GET['top'] == 30) ? 'selected' : '' ?>>TOP30</option>
+                    <option value="40" <?= (isset($_GET['top']) && $_GET['top'] == 40) ? 'selected' : '' ?>>TOP40</option>
+                    <option value="50" <?= (isset($_GET['top']) && $_GET['top'] == 50) ? 'selected' : '' ?>>TOP50</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Generate TOP</button>
@@ -89,6 +92,8 @@
             </div><!-- /.table-responsive -->
         <?php elseif(!empty($_GET)) : ?>
             <p>Sorry, there's no records for this parameters.</p>
+        <?php else: ?>
+            <p>Please, fill the form and push "Generate TOP"</p>
         <?php endif; ?>
     </div>
 </div>
