@@ -44,12 +44,14 @@ class View {
             }
             else
             {
-                //error
+                error_log('Template ' . $templateFile . ' not found');
+                echo "Template not found!";
             }
         }
         else
         {
-            //error
+            error_log('View ' . $this->viewPath . ' not found');
+            echo "View not found!";
         }
     }
 
