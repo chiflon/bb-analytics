@@ -6,7 +6,7 @@ A small webapp that show the Top N user agents that a campaign receives in a cer
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#configuration)
-- [Usage](#usage)   
+- [Usage](#usage)
 - [License](#license)
 - [Contribution guidelines](#contribution-guidelines)
 - [Additional information](#additional-information)
@@ -21,24 +21,24 @@ A small webapp that show the Top N user agents that a campaign receives in a cer
 To install this project you only have to clone, install font & end dependencies by composer and bower.
 
 ```bash
-	git clone https://chiflon@bitbucket.org/chiflon/basebone.test.git
+	git clone https://github.com/chiflon/bb-analytics.git
 	composer install
 	bower install
 ```
 DocumentRoot must point to `/public`
-	
+
 ## Configuration
 You can set the following config values in the `app/config.php`:
 
-- Debug mode. 
+- Debug mode.
 - Template name.
 - DB access.
 
 ```php
 	define('APP_DEBUG', true);
-	
+
 	define('VIEW_TEMPLATE', 'default');
-	
+
 	define('DB_HOST', 'localhost');
 	define('DB_NAME', 'db_name');
 	define('DB_USER', 'user');
@@ -46,7 +46,7 @@ You can set the following config values in the `app/config.php`:
 ```
 
 ## Usage
-In the first visit it shows the instalation page for create the DB and demo data.
+In the first visit it shows the instalation page for create the DB and download demo data.
 Then you can view the main page with a form. To get the Top user agent list you only have to push in `Generate TOP`.
 
 
