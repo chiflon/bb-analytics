@@ -3,7 +3,7 @@
  * @Author: Daniel Lozano
  * @Date:   2016-06-19 08:28:42
  * @Last Modified by:   Daniel Lozano
- * @Last Modified time: 2016-06-20 06:39:39
+ * @Last Modified time: 2016-06-20 08:58:27
  */
 ?>
 <!-- Jumbotron Header -->
@@ -29,18 +29,18 @@
         <form class="form-inline" method="GET">
             <div class="form-group">
                 <label class="sr-only" for="created_at">Date</label>
-                <input type="date" class="form-control" name="created_at" placeholder="Date" value="<?= $_GET['created_at'] ?>">
+                <input type="date" class="form-control" name="created_at" placeholder="Date" value="<?= (isset($_GET['created_at'])) ? $_GET['created_at'] : ''?>">
             </div>
             <div class="form-group">
                 <label class="sr-only" for="id_campaign">Campaign ID</label>
-                <input type="text" class="form-control" name="id_campaign" placeholder="Campaign ID" value="<?= $_GET['id_campaign'] ?>">
+                <input type="text" class="form-control" name="id_campaign" placeholder="Campaign ID" value="<?= (isset($_GET['id_campaign'])) ? $_GET['id_campaign'] : '' ?>">
             </div>
             <div class="form-group">
                 <label class="sr-only" for="id_campaign">Select range</label>
                 <select class="form-control" name="top">
-                    <option value="5" <?= ($_GET['top'] == 5) ? 'selected' : '' ?>>TOP5</option>
-                    <option value="10" <?= ($_GET['top'] == 10) ? 'selected' : '' ?>>TOP10</option>
-                    <option value="20" <?= ($_GET['top'] == 20) ? 'selected' : '' ?>>TOP20</option>
+                    <option value="5" <?= (isset($_GET['top']) && $_GET['top'] == 5) ? 'selected' : '' ?>>TOP5</option>
+                    <option value="10" <?= (isset($_GET['top']) && $_GET['top'] == 10) ? 'selected' : '' ?>>TOP10</option>
+                    <option value="20" <?= (isset($_GET['top']) && $_GET['top'] == 20) ? 'selected' : '' ?>>TOP20</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Generate TOP</button>
