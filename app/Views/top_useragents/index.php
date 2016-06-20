@@ -3,7 +3,7 @@
  * @Author: Daniel Lozano
  * @Date:   2016-06-19 08:28:42
  * @Last Modified by:   Daniel Lozano
- * @Last Modified time: 2016-06-19 19:30:44
+ * @Last Modified time: 2016-06-20 06:39:39
  */
 ?>
 <!-- Jumbotron Header -->
@@ -25,27 +25,72 @@
 
 <!-- Form -->
 <div class="row">
+    <div class="col-lg-12">
+        <form class="form-inline" method="GET">
+            <div class="form-group">
+                <label class="sr-only" for="created_at">Date</label>
+                <input type="date" class="form-control" name="created_at" placeholder="Date" value="<?= $_GET['created_at'] ?>">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="id_campaign">Campaign ID</label>
+                <input type="text" class="form-control" name="id_campaign" placeholder="Campaign ID" value="<?= $_GET['id_campaign'] ?>">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="id_campaign">Select range</label>
+                <select class="form-control" name="top">
+                    <option value="5" <?= ($_GET['top'] == 5) ? 'selected' : '' ?>>TOP5</option>
+                    <option value="10" <?= ($_GET['top'] == 10) ? 'selected' : '' ?>>TOP10</option>
+                    <option value="20" <?= ($_GET['top'] == 20) ? 'selected' : '' ?>>TOP20</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate TOP</button>
+            <a href="<?= $_SERVER['PATH_INFO'] ?>" class="btn btn-danger">Erase</a>
+        </form>
+    </div>
+</div>
+<!-- /.row -->
 
-    <form class="form-inline" method="GET">
-        <div class="form-group">
-            <label class="sr-only" for="created_at">Date</label>
-            <input type="date" class="form-control" name="created_at" placeholder="Date" value="<?= $_GET['created_at'] ?>">
-        </div>
-        <div class="form-group">
-            <label class="sr-only" for="id_campaign">Campaign ID</label>
-            <input type="text" class="form-control" name="id_campaign" placeholder="Campaign ID" value="<?= $_GET['id_campaign'] ?>">
-        </div>
-        <div class="form-group">
-            <label class="sr-only" for="id_campaign">Select range</label>
-            <select class="form-control" name="top">
-                <option value="5" <?= ($_GET['top'] == 5) ? 'selected' : '' ?>>TOP5</option>
-                <option value="10" <?= ($_GET['top'] == 10) ? 'selected' : '' ?>>TOP10</option>
-                <option value="20" <?= ($_GET['top'] == 20) ? 'selected' : '' ?>>TOP20</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Generate TOP</button>
-        <a href="" class="btn btn-danger">Erase</a>
-    </form>
+<hr />
 
+<!-- Results -->
+<div class="row">
+    <div class="col-lg-12">
+        <?php if (!empty($topUserAgents)): ?>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Pos.</th>
+                            <th>Count</th>
+                            <th>ID Country</th>
+                            <th>ID Campaign</th>
+                            <th>Device</th>
+                            <th>O.S.</th>
+                            <th>User Agent</th>
+                            <th width="25%">Raw User Agent</th>
+                            <th width="100">Created at</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($topUserAgents as $key => $topUserAgent): ?>
+                            <tr>
+                                <td>#<?= $key+1 ?></td>
+                                <td><?= number_format($topUserAgent['count_http_useragent']); ?></td>
+                                <td><?= $topUserAgent['id_country']; ?></td>
+                                <td><?= $topUserAgent['id_campaign']; ?></td>
+                                <td><?= $topUserAgent['user_agent']['device']; ?></td>
+                                <td><?= $topUserAgent['user_agent']['os']; ?></td>
+                                <td><?= $topUserAgent['user_agent']['ua']; ?></td>
+                                <td><?= $topUserAgent['http_useragent']; ?></td>
+                                <td><?= $topUserAgent['created_at']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table><!-- /.table table-striped table-hover -->
+            </div><!-- /.table-responsive -->
+        <?php elseif(!empty($_GET)) : ?>
+            <p>Sorry, there's no records for this parameters.</p>
+        <?php endif; ?>
+    </div>
 </div>
 <!-- /.row -->
