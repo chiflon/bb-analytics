@@ -11,12 +11,12 @@ class View {
 
     protected $viewPath;
 
-    public function __construct($viewPath)
+    public function __construct($dottedPath)
     {
-        $this->viewPath = self::viewPath2folderPath($viewPath);
+        $this->viewPath = self::dottedPath2viewPath($dottedPath);
     }
 
-    public function render($data)
+    public function render(array $data = array())
     {
         $templateFile = VIEWSPATH . 'templates' . DS . VIEW_TEMPLATE . '.php';
 
@@ -36,12 +36,11 @@ class View {
         {
             //error
         }
-
-
     }
 
-    public static function viewPath2folderPath($viewPath)
+
+    public static function dottedPath2viewPath($dottedPath)
     {
-        return VIEWSPATH . str_replace('.', '/', $viewPath) . '.php';
+        return VIEWSPATH . str_replace('.', DS, $dottedPath) . '.php';
     }
 }
