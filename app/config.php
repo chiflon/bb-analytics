@@ -10,10 +10,6 @@
  * App config file
  */
 
-// APP enviroment
-// (development|production)
-define('APP_ENV', 'development');
-
 // Debug mode
 // (true|false)
 define('APP_DEBUG', true);
